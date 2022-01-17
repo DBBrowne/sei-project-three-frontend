@@ -22,9 +22,9 @@ function TripPolyLine({
     },
   }
   return (
-    <Source id="polylineLayer" type="geojson" data={polylineData}>
+    <Source id={`polylineLayer${trip._id}`} type="geojson" data={polylineData}>
       <Layer
-        id="lineLayer"
+        id={`lineLayer${trip._id}`}
         type="line"
         source="my-data"
         layout={{
