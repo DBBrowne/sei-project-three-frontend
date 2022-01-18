@@ -139,9 +139,8 @@ function RenderMap ({
         {hasMemories && arrayOfTrips.map(trip =>{
           //if no memories, don't attempt to draw anything memory related
           if (!trip.memories.length) return
-          const randomColourValue = () => Math.floor(Math.random() * 255)
           const polylineOptions = {
-            lineColour: `rgba(${randomColourValue()}, ${randomColourValue()}, ${randomColourValue()}, 0.8)`,
+            lineColor: trip.lineColor,
           }
           return (
             <ul key={trip._id}>
@@ -158,7 +157,7 @@ function RenderMap ({
               }
               {
                 Boolean(trip.memories.length > 1) && 
-              <TripPolyLine key={trip._id} trip={trip} options = {polylineOptions}/>
+              <TripPolyLine key={trip._id} trip={trip} options={polylineOptions}/>
               }
             </ul>
           )

@@ -1,7 +1,7 @@
 import { Source, Layer } from 'react-map-gl'
 
 const defaultOptions = { 
-  lineColour: 'rgba(213, 184, 255, 0.8)',
+  lineColor: 'rgba(213, 184, 255, 0.8)',
   lineWidth: 4,
 }
 
@@ -32,7 +32,7 @@ function TripPolyLine({
           'line-cap': 'round',
         }}
         paint={{
-          'line-color': options.lineColour, 
+          'line-color': options.lineColor, 
           'line-width': options.lineWidth,
         }}
       />
