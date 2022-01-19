@@ -5,13 +5,18 @@ function randomDate(start, end) {
 }
 
 
-function TripCardSmall ({ trip }) {
+function TripCardSmall ({ trip, coloredBorder = false }) {
+  // console.log(coloredBorder)
+  // console.log(trip.lineColor)
   return (
-    <div className="show-small-container">
+    <div 
+      className="show-small-container" 
+    >
       <Link 
         to={`/trips/${trip._id}`}
-        className=" d-flex flex-column placebook-form shadow rounded m-2 bg-light">
-
+        className=" d-flex flex-column placebook-form shadow rounded m-2 bg-light"
+        style={coloredBorder && `borderColor=${trip.lineColor}`}  //comment this out to get the page working!
+      >
         {/* //todo : replace with trip summary image*/}
         <div className="row">
           <div className="pt-3 pb-2 cover mb-1">
