@@ -47,6 +47,9 @@ export function tripDelete(tripId){
 }
 
 // Memories
+export function memoryGetAll(){
+  return axios.get(`${baseUrl}/memories/`)
+}
 export function memoryGetById(memoryId){
   return axios.get(`${baseUrl}/memories/${memoryId}`)
 }
@@ -67,4 +70,8 @@ export function memoryDelete(memoryId){
 
 export function countriesGetAll(){
   return axios.get(`${baseUrl}/countries`)
+}
+
+export function countriesGetById(countryId){
+  return axios.get(`${baseUrl}/countries/${countryId}`)
 }

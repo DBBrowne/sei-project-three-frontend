@@ -1,11 +1,10 @@
-
-import axios from 'axios'
 import React from 'react'
 import { logoImageLink } from '../../config.js'
 import { useParams, Link } from 'react-router-dom'
 
 import Error from '../common/Error.js'
 import { buttonStyle } from '../../lib/bootstrap-css-config.js'
+import { countriesGetById, getAllTrips } from '../../lib/api.js'
 
 function CountryShow () {
   const { countryId } = useParams()
@@ -17,7 +16,7 @@ function CountryShow () {
   React.useEffect(() => {
     const getCountry = async () => {
       try {
-        const countryData = await axios.get(`/api/countries/${countryId}`)
+        const countryData = await countriesGetById(countryId)
         setCountry(countryData.data)
       } catch (err) {
         setIsError(true)
@@ -29,7 +28,7 @@ function CountryShow () {
   React.useEffect(() => {
     const getTrips = async () => {
       try {
-        const tripData = await axios.get('/api/trips')
+        const tripData = await getAllTrips()
         setTrips(tripData.data)
       } catch (err) {
         setIsError(true)

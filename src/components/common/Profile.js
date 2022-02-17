@@ -1,10 +1,9 @@
-import axios from 'axios'
 import { Link, useParams } from 'react-router-dom'
 import React from 'react'
 
 import { getUserId } from '../../lib/auth.js'
 import { buttonStyle } from '../../lib/bootstrap-css-config.js'
-import { getUserProfile } from '../../lib/api.js'
+import { getUserProfile, memoryGetAll } from '../../lib/api.js'
 import Error from './Error.js'
 
 const initialUserData = {
@@ -47,7 +46,7 @@ function Profile() {
   React.useEffect(()=>{
     const getMemories = async () => {
       try {
-        const memoryData = await axios.get('/api/memories')
+        const memoryData = await memoryGetAll()
         const thisUserId = userId || getUserId()
         setMemoriesArray(
           memoryData.data.filter(
