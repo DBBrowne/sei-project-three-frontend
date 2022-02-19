@@ -5,4 +5,7 @@
     "titleBar.inactiveBackground": "#c71da5af"
   },
   "window.title": "placeBook Frontend",
+  "cSpell.words": [
+    "placebook"
+  ],
 }
