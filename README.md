@@ -2,7 +2,7 @@
 # PlaceBook
 Share memories or dreams of trips with locations and photographs.
 
-Deployed at [placebook.dbb.tools](https://placebook.dbb.tools) via [Netlify](https://netlify.com/), with [Heroku](https://heroku.com) and [MongoDB Atlas](https://cloud.mongodb.com).  
+Deployed at [placebook.dbb.tools](https://placebook.dbb.tools) via [Netlify](https://netlify.com/), with [Heroku](https://heroku.com) and [MongoDB Atlas](https://cloud.mongodb.com).
 
 MERN - MongoDB, Express.js, React.js, Node.js - Full stack application.  
 BackEnd: [DBBrowne/sei-project-three-backend](https://github.com/DBBrowne/sei-project-three-backend)  
@@ -41,7 +41,7 @@ FrontEnd: [DBBrowne/sei-project-three-frontend](https://github.com/DBBrowne/sei-
 ## Usage
 - Explore "Inspire Me" and "See Trips" to see the trip other have taken or are dreaming of.
 - Register and log in to create your own trips and memories.
-- Use the geolocator, or drag the map, to record where your memory happened, add a photo and a notes, and watch the map of your trip come to life.
+- Use the geolocator, or drag the map, to record where your memory happened. Add a photo and a note. Watch the map of your trip come to life.
 ### <img src="https://camo.githubusercontent.com/415f76b0bc75bdd0a32dd5ed758db017d764687fb4d905eda183d1d9b0316635/68747470733a2f2f692e696d6775722e636f6d2f7a6255387339342e706e67" height="60">  PlaceBook
 
 
@@ -66,7 +66,7 @@ Clone both [PlaceBook Backend](https://github.com/DBBrowne/sei-project-three-bac
     - From the root folder of your local backend repo:
         - If you wish to set your own local admin password, jwt secret or MongoDB connection URI: 
             - Duplicate the `env.example`, rename it `.env` file and set a local `ADMIN_PASS`, `JWT_SECRET`, 
-        - If you wish to change form the default port number (`4000`), set this in the `.env` file as above.
+        - If you wish to change from the default port number (`4000`), set this in the `.env` file as above. You will also need to update the [FE proxy settings](https://github.com/DBBrowne/sei-project-three-frontend/blob/main/src/setupProxy.js)
         - Install dependencies with:
             ```console
             $ npm install
@@ -97,9 +97,9 @@ Clone both [PlaceBook Backend](https://github.com/DBBrowne/sei-project-three-bac
             ```
     #### Running Tests
     - Ensure the server is responding as expected by importing the [Insomnia collection](https://github.com/DBBrowne/sei-project-three-backend/blob/66066344a2bb337999513a08e7580756a975caad/Insomnia/Insomnia-placebook.json) (`<backendRepo>Insomnia/Insomnia-placebook.json`) into [Insomnia](https://insomnia.rest/).
-        > Insomnia is an OpenAPI test client.  The collection JSON may work with other clients, but this is untested.  
+        > Insomnia is an OpenAPI test client. The collection JSON may work with other clients, but this is untested.
 
-        A collection of positive and negative tests exist in Insomnia-placebook.json.  To confirm basic operation, execute the following API calls from the Insomnia collection.  All should receive a `2xx` HTML response code:
+        A collection of positive and negative tests exist in Insomnia-placebook.json. To confirm basic operation, execute the following API calls from the Insomnia collection. All should receive a `2xx` HTML response code:
         1. `Trips/index` - Get an index of all stored trips.
         1. `Users/register` - Register your test user.
         1. `Users/login` - Populate the Insomnia environment with a valid token.
@@ -108,7 +108,7 @@ Clone both [PlaceBook Backend](https://github.com/DBBrowne/sei-project-three-bac
 
 2. Frontend  
     From the root folder of your local frontend repo:
-    - Duplicate `.env.example` to `.env`.  Fill the `REACT_APP_MAPS_API_KEY` with your [MapBox api key](https://docs.mapbox.com/help/getting-started/access-tokens/).
+    - Duplicate `.env.example` to `.env`. Fill the `REACT_APP_MAPS_API_KEY` with your [MapBox api key](https://docs.mapbox.com/help/getting-started/access-tokens/).
     - Ensure FE proxy is targeting the correct port. This defaults to match the BE on `4000`, but can be set:  
         https://github.com/DBBrowne/sei-project-three-frontend/blob/f3ca5d10cc8c95d61db9479b557b083e94da3dbb/src/setupProxy.js#L3-L9
     - Run with
@@ -123,7 +123,7 @@ Clone both [PlaceBook Backend](https://github.com/DBBrowne/sei-project-three-bac
         ...
         ```
     - Your default browser will open at `localhost:3000`, and display the Placebook app landing page.
-    > Feb 2022: macOS appears to be having some issues resolving localhost to the ipv4 address (`127.0.0.1`).  Look for hints of ipv6 resolution (`::1`) if you are unable to connect the various app parts.  Resolve by fixing your hosts file, or replacing references to `localhost` in this project with `127.0.0.1`.
+    > Feb 2022: macOS appears to be having some issues resolving localhost to the ipv4 address (`127.0.0.1`). Look for hints of ipv6 resolution (`::1`) if you are unable to connect the various app parts. Resolve by fixing your hosts file, or replacing references to `localhost` in this project with `127.0.0.1`.
 #### Deployment
 1. Backend
     - Set up a live mongoDB database (eg with [Mongo Atlas](https://www.mongodb.com/atlas/database))
@@ -144,7 +144,7 @@ Clone both [PlaceBook Backend](https://github.com/DBBrowne/sei-project-three-bac
     ```
 
 1. Frontend
-    -  Set up your image hosting/processing tool, eg Cloudinary.  Either use the default profile names of `PB-profile-image` and `PB-memory-image` or set your own in the env variables.
+    -  Set up your image hosting/processing tool, eg Cloudinary. Either use the default profile names of `PB-profile-image` and `PB-memory-image` or set your own in the env variables.
         - `PB-profile-image` transformations:
             ```
             Incoming Transformation: c_crop,g_face:auto,h_300,q_auto:best,w_300,x_0,y_0
@@ -165,7 +165,7 @@ Clone both [PlaceBook Backend](https://github.com/DBBrowne/sei-project-three-bac
         REACT_APP_CLOUDINARY_UPLOAD_PRESET_PROFILE='PB-profile-image'
         REACT_APP_CLOUDINARY_UPLOAD_PRESET_MEMORY='PB-memory-image'
         ```
-    - Select map style from the [Mapbox Styles](https://docs.mapbox.com/api/maps/styles/) options.  Set with the env var:
+    - Select map style from the [Mapbox Styles](https://docs.mapbox.com/api/maps/styles/) options. Set with the env var:
         ```
         REACT_APP_MAPS_DEFAULT_STYLE = 'light-v10'
         ```
@@ -173,7 +173,7 @@ Clone both [PlaceBook Backend](https://github.com/DBBrowne/sei-project-three-bac
 
 ## Overview
 ## System Design
-- Build reusable components where possible - the memory card and map components are used ins several places throughout the app, with a few switches for showing editing options.
+- Build reusable components where possible - the memory card and map components are used in several places throughout the app, with a few switches for showing editing options.
 - API follows the REST formula. 
     - /trips/?tripId
     - /memories/?memoryId
@@ -202,7 +202,7 @@ Design a data structure to support:
 
 ![GA_project3 - PlaceBook data structure](https://user-images.githubusercontent.com/72463218/154779104-a0bc902d-a0d2-4f44-ad50-5f4afccfe47a.jpg)
 
-Realising that we had an interesting but potentially challenging application to bui,d we spend the first 1-1.5 days planning and trying some experiments, before laying out a plan in a simple kanban board, and each team member choosing the most appealing top-priority tasks.
+Realising that we had an interesting but potentially challenging application to build, we spend the first 1-1.5 days planning and trying some experiments, before laying out a plan in a simple kanban board, and each team member choosing the most appealing top-priority tasks.
 
 ### Wireframes
 ![GA_project3 - Placebook wireframe](https://user-images.githubusercontent.com/72463218/154779210-17f85c2d-6aa4-444a-9aea-a023df99d63a.jpg)
@@ -212,37 +212,37 @@ Realising that we had an interesting but potentially challenging application to 
 - Virtuals to protect sensitive data and 
 
 ### Build Execution
-- Whilst Mike set up the backend and Alex built the register/login flows and design, I began work implementing a Google Maps based components.
-- After struggling with potential API limits, I moved ot MapBox and the react-map-gl package, and development accelerated considerably.
+- Whilst Mike set up the backend and Alex built the register/login flows and design framework, I began work on implementing Google Maps based mapping components.
+- After struggling with integrating the Google Maps Api Docs with React, and facing potential API limits, I moved to MapBox and the react-map-gl package. Development accelerated considerably.
     - Map Proof of concept component:  
     https://github.com/DBBrowne/sei-project-three-frontend/blob/b22c847bbb90085034cf0c7e790e95efda8ef4fd/src/components/common/maps/RenderMap.js#L24-L46
 - I then moved on to creating a seed script and improving our API test suite for better coverage and test "environment" automation within Insomnia
 
-- Whilst Mike and Alex continued to build out profile and country information functionality, I improved error handling and [authentication management](![image](https://user-images.githubusercontent.com/72463218/154780635-8b74a7d8-c677-408c-acf4-0d225a7cb4a5.png)) in the backend, attaching user details to secure routes, and checking them against resource owners before permitting mutation.  Better role management, either via a simple custom check of a user's approved actions, or via oAuth, would be helpful!
+- Whilst Mike and Alex continued to build out profile and country information functionality, I improved error handling and [authentication management](![image](https://user-images.githubusercontent.com/72463218/154780635-8b74a7d8-c677-408c-acf4-0d225a7cb4a5.png)) in the backend, attaching user details to secure routes, and checking them against resource owners before permitting mutation. Better role management, either via a simple custom check of a user's approved actions, or via oAuth, would be helpful!
     https://github.com/DBBrowne/sei-project-three-backend/blob/42959eeb8bfd61597ae07cf6d23fccafe8dca7bc/controllers/authHelpers.js#L1-L10
 
-- We needed the map to choose a sensible zoom for picking locations and displaying trips.  Unfortunately this seemed to require taking control of some internal viewport functionality in order to retain pan functionality.  A [better solution](https://github.com/DBBrowne/sei-project-three-frontend/blob/295e71c266c13d00a14cbbb4c0a48b8f7c540d05/src/components/common/maps/LocationPicker.js#L44-L46) was later identified.
+- We needed the map to choose a sensible zoom for picking locations and displaying trips. Unfortunately this seemed to require taking control of some internal viewport functionality in order to retain pan functionality. A [better solution](https://github.com/DBBrowne/sei-project-three-frontend/blob/295e71c266c13d00a14cbbb4c0a48b8f7c540d05/src/components/common/maps/LocationPicker.js#L44-L46) was later identified.
   
   https://github.com/DBBrowne/sei-project-three-frontend/blob/3cdff7f394e5519cfc79d2e67db26f09d448a169/src/components/common/maps/RenderMap.js#L45-L68
-- Once we had a working map component, I moved on to building the trip create/edit form with a reusable memory edit components.  After many iterations, I arrived at a layout with the "tripEdit" component, with error handling, on the left half of the screen, and then an array of attached memories, with the final member being a link to re-render the memory create component.
+- Once we had a working map component, I moved on to building the trip create/edit form with a reusable memory edit components. After many iterations, I arrived at a layout with the "tripEdit" component, with error handling, on the left half of the screen, and then an array of attached memories, with the final member being a link to re-render the memory create component.
   These Memory cards could then be reused throughout the app.
 ![image](https://user-images.githubusercontent.com/72463218/154780635-8b74a7d8-c677-408c-acf4-0d225a7cb4a5.png)
 
 - With a set of working create/edit components, I was able to combine the map component with the array of all trips and the reusable memory cards to [create a map based multi-trip index page](https://github.com/DBBrowne/sei-project-three-frontend/commit/347fa33bc750c4a49abc8c62b8b865782f1a090e).
-    - I initially made a poor selection of the point at which to generate the random polyline colours, although this did generate  rather psychedelic effect of re-colouring each polyline multiple times per second as the map was moved around or re-rendered in any way.
+    - I initially made a poor selection of the point at which to generate the random polyline colours, although this did create the rather psychedelic effect of re-colouring each polyline multiple times per second as the map was moved around or re-rendered in any way.
     https://github.com/DBBrowne/sei-project-three-frontend/blob/50fd153f430bae7777b30d00a372ca64d71c6d9a/src/components/common/maps/RenderMap.js#L139-L161
 
 ![Placebook Trips View](https://user-images.githubusercontent.com/72463218/154768547-94a57a19-4a19-4a2c-a470-1d84ab16cf01.png)
-- With most features now working, we had a last minute rush to bugfix.  I enjoyed adjusting various icon SVGs to use their [parent element's text colour](https://github.com/DBBrowne/sei-project-three-frontend/blob/4784e2ef3f10675fc7217552ced42c9abdec7ca9/src/components/Assets/IconBin.js).
+- With most features now working, we had a last minute rush to bugfix. I enjoyed adjusting various icon SVGs to use their [parent element's text colour](https://github.com/DBBrowne/sei-project-three-frontend/blob/4784e2ef3f10675fc7217552ced42c9abdec7ca9/src/components/Assets/IconBin.js).
 
 ## Known Bugs
 - Viewing a trip containing a memory that is missing a visit date causes the react app to crash.
 - react-maps-gl appears to contain a number of CORS issues and deprecated WebGL behaviors, which are beyond the scope of this project to address.
-- the react-maps-gl css sheet is not loading correctly at mount.  Fortunately this does not seem to cause noticeable problems as the sheet is loaded in sufficient time to render the map, however this should be addressed.
+- the react-maps-gl css sheet is not loading correctly at mount. Fortunately this does not seem to cause noticeable problems as the sheet is loaded in sufficient time to render the map, however this should be addressed.
 
 ## Challenges
 - Maps.
-    - I initially attempted to use the Google maps API directly.  Although I did get a basic map working, building polylines and custom markers looked like a considerable amount of work.  So I moved to mapbox, and react-map-gl, which provided a nice, react compatible wrapper.
+    - I initially attempted to use the Google maps API directly. Although I did get a basic map working, building polylines and custom markers looked like a considerable amount of work. So I moved to mapbox, and react-map-gl, which provided a nice, react compatible wrapper.
     - Taking control of the map viewport to fit the markers more closely required a considerable amount of logic and troubleshooting.
 - Bootstrap 
     - A css framework with ups and downs.
@@ -296,11 +296,22 @@ Realising that we had an interesting but potentially challenging application to 
     }
     ```
 - Social interactions - likes and messaging.
+- Refactor frontend API wrappers to `scope.action()`, and avoid stutter, as per [my implementation](https://github.com/DBBrowne/code-challenges-public/blob/main/lib/test.js#L3) of [this standard](https://github.com/coolaj86/AJScript/issues/8), eg:
+  ```js
+  import axios from 'axios'
+  let placebookApi = {}
+
+  placebookApi.user.register = (formData) => { return axios.post(`${baseUrl}/register`, formData)}
+
+  placebookApi.trips.index = () => {return axios.get(`${baseUrl}/trips/`)}
+
+  export default placebookApi
+  ```
 
 ## Key Lessons
-- Code reviews.  Lots more code reviews to catch edge cases and bugs in each other's code before the team moves on.
+- Code reviews. Lots more code reviews to catch edge cases and bugs in each other's code before the team moves on.
 - CSS/HTML planning - more detailed planning to allow for more reuse of the DOM tree could reduce repetition and make styling easier.
-- Be wary of taking control of a module's internal behaviour.  If not implemented nicely, this map mean that you have to correctly duplicate a lot of the internal functionality!
+- Be wary of taking control of a module's internal behaviour. If not implemented nicely, this might mean that you have to correctly duplicate a lot of the internal functionality!
 
 
 ## Team Members
