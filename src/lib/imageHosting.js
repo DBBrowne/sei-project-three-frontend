@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const hostUrl = process.env.REACT_APP_CLOUDINARY_URL
+const hostUrl = process.env.REACT_APP_CLOUDINARY_URL //'https://api.cloudinary.com/v1_1/team-mad/image/upload'
 const imagePresets = {
-  memory: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET_MEMORY,
-  profile: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET_PROFILE,
+  memory: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET_MEMORY,// 'PB-memory-image',
+  profile: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET_PROFILE, //'PB-profile-image',
 }
 
 function cloudinaryUpload (presetName, url, image, presets = imagePresets) {
