@@ -29,4 +29,7 @@ require('esbuild').build({
   loader: { '.js': 'jsx' },
   minify: true,
   define: { 'process.env.NODE_ENV': '"production"' },
-}).catch(() => process.exit(1))
+  watch: true,
+}).catch(() => process.exit(1)).then(()=>
+  console.log('Watching...')
+)

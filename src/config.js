@@ -1,4 +1,5 @@
 // import * as env from 'env'
+// const process.env = { env }
 
 export const logoImageLink = 'https://i.imgur.com/ElzRumx.png'
 export const profileImageLink = 'https://i.imgur.com/vX6eUuR.png'
