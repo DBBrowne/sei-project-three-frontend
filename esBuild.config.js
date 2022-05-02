@@ -20,13 +20,60 @@ const envFilePlugin = require('esbuild-envfile-plugin')
 //     }))
 //   },
 // }
+// const define = {}
+
+// for (const key in process.env) {
+//   define[`process.env.${key}`] = JSON.stringify(process.env[key])
+// }
+// console.log(define)
+// const path = require('path')
+// const fs = require('fs')
+// const dotenv = require('dotenv')
+
+// function _findEnvFile(dir) {
+//   if (!fs.existsSync(dir))
+//     return false
+//   const filePath = `${dir}/.env`
+//   if ((fs.existsSync(filePath))) {
+//     return filePath
+//   } else {
+//     return _findEnvFile(path.resolve(dir, '../'))
+//   }
+// }
+
+// async function getEnvData () {
+//   // read in .env file contents and combine with regular .env:
+//   const data = await fs.promises.readFile(
+//     _findEnvFile('./')
+//     , 'utf8')
+//   const buf = Buffer.from(data)
+//   const config = dotenv.parse(buf)
+
+//   return ({
+//     contents: JSON.stringify( { ...process.env, ...config }),
+//     loader: 'json',
+//   })
+// }
+
+// const envVars = getEnvData()
+const dotenv = require('dotenv')
+dotenv.config()
+
+const define = {}
+for (const key in process.env) {
+  define[`process.env.${key}`] = JSON.stringify(process.env[key])
+}
+// console.log(define)
 
 require('esbuild').build({
-  plugins: [envFilePlugin, sassPlugin.sassPlugin()],
+  plugins: [sassPlugin.sassPlugin(),envFilePlugin],
   entryPoints: ['./src/index.js'],
   bundle: true,
   outdir: 'esBuild/static',
   loader: { '.js': 'jsx' },
-  minify: true,
-  define: { 'process.env.NODE_ENV': '"production"' },
+  // minify: true,
+  define,
+  sourcemap: true,
+}).then(()=>{
+  console.log('Build Succeeded')
 }).catch(() => process.exit(1))

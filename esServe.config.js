@@ -21,6 +21,15 @@ const envFilePlugin = require('esbuild-envfile-plugin')
 //   },
 // }
 
+const dotenv = require('dotenv')
+dotenv.config()
+
+const define = {}
+for (const key in process.env) {
+  define[`process.env.${key}`] = JSON.stringify(process.env[key])
+}
+// console.log(define)
+
 require('esbuild').serve({
   servedir: 'esBuild',
 },{
@@ -30,9 +39,7 @@ require('esbuild').serve({
   outdir: 'esBuild/static',
   loader: { '.js': 'jsx' },
   sourcemap: true,
-  define: { 
-    'process.env.NODE_ENV': '"development"',
-  },
+  define,
   inject: ['esBuild_reactShim.js'],
 }).then(result =>{
   console.log(result)
