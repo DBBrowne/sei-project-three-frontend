@@ -17,7 +17,9 @@
     "react-scripts": "4.0.3",
     "react-select": "^5.2.1",
     "react-select-country-list": "^2.2.3",
-    "sass": "^1.38.0"
+    "sass": "^1.38.0",
+    "esbuild": "^0.14.38",
+    "esbuild-sass-plugin": "^2.2.6"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,9 +47,6 @@
     ]
   },
   "devDependencies": {
-    "dotenv": "^16.0.0",
-    "esbuild": "^0.14.38",
-    "esbuild-envfile-plugin": "^1.0.2",
-    "esbuild-sass-plugin": "^2.2.6"
+    "dotenv": "^16.0.0"
   }
 }
